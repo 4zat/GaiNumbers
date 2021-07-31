@@ -17,7 +17,6 @@ public class NumberController {
 
     private final NumberService numberService;
 
-    @Autowired
     public NumberController(NumberService numberService) {
         this.numberService = numberService;
     }

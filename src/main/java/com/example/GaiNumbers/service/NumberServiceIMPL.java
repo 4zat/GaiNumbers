@@ -12,7 +12,6 @@ public class NumberServiceIMPL implements NumberService {
 
     private final NumberRepository numberRepository;
 
-    @Autowired
     public NumberServiceIMPL(NumberRepository numberRepository) {
         this.numberRepository = numberRepository;
     }

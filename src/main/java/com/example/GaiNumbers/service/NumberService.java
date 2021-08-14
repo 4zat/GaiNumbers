@@ -1,7 +1,5 @@
 package com.example.GaiNumbers.service;
 
-import com.example.GaiNumbers.entity.Numbers;
-
 import java.util.List;
 
 public interface NumberService {

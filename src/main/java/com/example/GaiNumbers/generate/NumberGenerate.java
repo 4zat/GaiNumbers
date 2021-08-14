@@ -1,10 +1,5 @@
 package com.example.GaiNumbers.generate;
 
-import com.example.GaiNumbers.entity.Numbers;
-import com.example.GaiNumbers.service.NumberService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -37,7 +32,7 @@ public class NumberGenerate {
         return s;
     }
     public String nextNumber(String findLast) {
-        String s = findLast;
+        StringBuilder s = new StringBuilder(findLast);
 
         char[] num = new char[s.length()];
         int[] letter = new int[3];
@@ -55,8 +50,8 @@ public class NumberGenerate {
                 letter[2] = i;
         }
 
-        if(s.equals("М999ММ 116RUS")) {
-            s = "А000АА 716RUS";
+        if(s.toString().equals("М999ММ 116RUS")) {
+            s = new StringBuilder("А000АА 716RUS");
             for (int i = 0; i < s.length(); i++) {
                 num[i] = s.charAt(i);
             }
@@ -90,10 +85,10 @@ public class NumberGenerate {
             }
         }
 
-        s = "";
-        for (int i = 0; i < num.length; i++) {
-            s = s + num[i];
+        s = new StringBuilder();
+        for (char c : num) {
+            s.append(c);
         }
-        return s;
+        return s.toString();
     }
 }

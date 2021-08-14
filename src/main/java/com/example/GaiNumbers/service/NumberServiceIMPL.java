@@ -1,8 +1,6 @@
 package com.example.GaiNumbers.service;
 
-import com.example.GaiNumbers.entity.Numbers;
 import com.example.GaiNumbers.repo.NumberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

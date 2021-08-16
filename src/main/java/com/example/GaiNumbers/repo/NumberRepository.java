@@ -23,6 +23,4 @@ public interface NumberRepository extends JpaRepository<Numbers, Long> {
     @Modifying
     @Query(value = "insert into Numbers (number_values) select :number_values", nativeQuery = true)
     void insertNumbers_value(@Param("number_values")String numberValue);
-
-
 }

@@ -35,7 +35,10 @@ public class NumberController {
 
     @GetMapping("/next")
     String next(Model model) {
-        numberService.insertNumbers_value(numberGenerate.nextNumber(numberService.findLast()));
+        String num = numberGenerate.checkFindLast(numberGenerate.nextNumber(numberService.findLast()),
+                numberService.findAllByNumbers());
+
+        numberService.insertNumbers_value(num);
         model.addAttribute("name", numberService.findLast());
         return "greeting";
     }

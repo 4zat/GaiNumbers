@@ -5,35 +5,21 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-
-<!--PRINT INFORMATION-->
-<div class="text_information"
-     style= "text-align: center;margin: auto; width: 25%;" >
-
-  <p style="font-size: 40px;border: 10px solid black;
-  width: 100%;" th:text="${name}" />
-</div>
-<!--PRINT INFORMATION-->
-
+<pre>
+<h1 th:text="${name}"></h1>
+</pre>
 
 <!--BUTTONS-->
-<div class="button"
-     style= "text-align: center; margin: auto;">
-
-  <a th:href="@{http://localhost:8080/next}">
-    <button type="button" style="font-size: 25px" >NEXT</button>
-  </a>
-
-  <a th:href="@{http://localhost:8080/random}">
-    <button type="button" style="font-size: 25px">RANDOM</button>
-  </a>
-</div>
+<form th:action="@{/next(test=${name})}" method="post">
+  <input type="hidden" th:value="${name}">
+  <button type="submit">Next</button>
+</form>
+<a th:href="@{/random}">
+<button type="button">Random</button>
+</a>
 <!--BUTTONS-->
-
 
 </body>
 </html>
 
-<!--th:href="@{http://localhost:8080/next} -->
-<!--th:href="@{http://localhost:8080/random}" -->
 

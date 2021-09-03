@@ -16,11 +16,18 @@ public interface NumberRepository extends JpaRepository<Numbers, Long> {
     @Query("select n.numberValue from Numbers n")
     List<String> findAllByNumbers();
 
+    @Query("select n.numberId from Numbers n")
+    List<Integer> findAllByNumberId();
+
+    @Query("select max(n.numberId) from Numbers n")
+    Integer findByLastId();
+
     @Query("select n.numberValue from Numbers n where n.numberId = (select max(n1.numberId) from Numbers n1)")
     String findLast();
 
     @Transactional
     @Modifying
-    @Query(value = "insert into Numbers (number_values) select :number_values", nativeQuery = true)
-    void insertNumbers_value(@Param("number_values")String numberValue);
+    @Query(value = "insert into Numbers (number_id, number_values) VALUES (:id, :number_value)",
+            nativeQuery = true)
+    void insertNumbersValue(@Param("id") Integer id, @Param("number_value")String numberValue);
 }

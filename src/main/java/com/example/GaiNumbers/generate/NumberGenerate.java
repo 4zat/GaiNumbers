@@ -6,23 +6,21 @@ public class NumberGenerate {
 
     Random random = new Random();
 
-    char[] letters = new char[] {'A'};
-
-//    letters[random.nextInt(11)]
+    final char[] letters = new char[] {'A', 'E', 'T', 'O', 'P', 'H', 'Y', 'K', 'X', 'C', 'B', 'M'};
 
     String randomNumber() {
-        return "A" + "" + random.nextInt(10)
+        return letters[random.nextInt(11)] + "" + random.nextInt(10)
                 + random.nextInt(10) + random.nextInt(10) + "" +
-                "A" + "" + "A" + " 116RUS";
+                letters[random.nextInt(11)] + "" + letters[random.nextInt(11)] + " 116RUS";
     }
 
     public String rand(List<String> numbers) {
 
         String s = randomNumber();
 
+        //Самый быстрый способ, иначе слишком много итераций
         Set<String> buf = new HashSet<>(numbers);
-
-        if (buf.size() > 999)
+        if (buf.size() > 1728000)
             return "Error";
 
         while (numbers.contains(s))
@@ -61,7 +59,7 @@ public class NumberGenerate {
             num[1] = '0';
             num[2] = '0';
             num[3] = '0';
-//            num[5] = letters[letter[2] + 1];
+            num[5] = letters[letter[2] + 1];
         }
         else
         if (num[3] == '9' && num[2] == '9') {
@@ -76,14 +74,14 @@ public class NumberGenerate {
         else
             num[3]++;
 
-//        if (num[5] == letters[letters.length-1]) {
-//            num[5] = letters[0];
-//            num[4] = letters[letter[1] + 1];
-//            if (num[4] == letters[letters.length-1]) {
-//                num[1] = letters[0];
-//                num[0] = letters[letter[0] + 1];
-//            }
-//        }
+        if (num[5] == letters[letters.length-1]) {
+            num[5] = letters[0];
+            num[4] = letters[letter[1] + 1];
+            if (num[4] == letters[letters.length-1]) {
+                num[1] = letters[0];
+                num[0] = letters[letter[0] + 1];
+            }
+        }
 
         s = new StringBuilder();
         for (char c : num) {

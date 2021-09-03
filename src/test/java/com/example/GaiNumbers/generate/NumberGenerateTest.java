@@ -18,7 +18,7 @@ import java.util.List;
 @SpringBootTest
 class NumberGenerateTest {
 
-    final char[] letters = new char[] {'E', 'B', 'A'};
+    final char[] letters = new char[] {'A', 'E', 'T', 'O', 'P', 'H', 'Y', 'K', 'X', 'C', 'B', 'M'};
     NumberGenerate numberGenerate = new NumberGenerate();
     List<String> test;
 
